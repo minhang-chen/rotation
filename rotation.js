@@ -30,6 +30,7 @@ extend(Rotation.prototype,{
 
 	active:function(){
 		var _this = this;
+		this.oImgBox.style.transitionDuration = this.moveTime+'s';
 		this.oImgBox.style.width =  this.imgWidth * this.length + 'px';
 
 		this.btnLeft.onclick = function(){
@@ -95,12 +96,14 @@ extend(Rotation.prototype,{
 			}
 		}
 	},
+
 	_btnBothSides:function(num){
 			this.oImgBox.style.left = '-' + num* this.imgWidth + 'px';
 			this.index = num + 1;
 			this._removeblack();
 			this.oListbutton[num].classList.add('black');
 	},
+
 	_removeblack:function(){
 		for(var a=0;a<this.oListbutton.length;a++){
 			this.oListbutton[a].classList.remove('black');
